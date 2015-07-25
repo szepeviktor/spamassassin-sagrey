@@ -1,6 +1,6 @@
 #
 # Mail::SpamAssassin::Plugin::SAGrey
-# version 0.01, August 21, 2005
+# version 0.02, June 10, 2006
 #
 # Eric A. Hall, <ehall@ntrg.com>
 # http://www.ntrg.com/misc/sagrey/
@@ -22,6 +22,8 @@
 # </@LICENSE>
 #
 # CHANGELOG:
+#
+# v0.02 -- fixed bug with sagrey_header_field parsing
 #
 # v0.01 -- initial release
 #
@@ -46,7 +48,7 @@
 #
 package Mail::SpamAssassin::Plugin::SAGrey;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 use Mail::SpamAssassin::Plugin;
 use Mail::SpamAssassin::AutoWhitelist;
@@ -110,10 +112,10 @@ my ($self, $config) = @_;
 		}
 
 		else {
-			dbg ("LDAPfilter\: $config->{key}\: ".
+			dbg ("SAGrey\: $config->{key}\: ".
 				"\"$config->{value}\" is not a valid ".
 				"toggle value; using default value of ".
-				"\"$self->{ldap_persistency}\"");
+				"\"$self->{header_field}\"");
 		}
 
 		$self->inhibit_further_callbacks();
