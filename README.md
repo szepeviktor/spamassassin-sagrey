@@ -1,3 +1,13 @@
+Eric A. Hall wrote:
+
+```
+1) the old SA AWL database did not work correctly so SAGREY produced a lot
+of false positives, and
+
+2) the new SA distribution no longer includes the AWL, and the new tech
+that it does provide also does not work correctly
+```
+
 # Mail::SpamAssassin::Plugin::SAGrey
 
 SAGrey is a SpamAssassin plugin that provides a selective greylist tagging mechanism based on data that is already available in the SpamAssassin engine.
